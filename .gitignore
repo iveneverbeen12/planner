@@ -1,0 +1,7 @@
+﻿# local tools and binaries
+tools/PortableGit/
+tools/PortableGit.7z.exe
+tools/tailwindcss.exe
+# OS/editor
+.DS_Store
+Thumbs.db

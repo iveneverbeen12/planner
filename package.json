@@ -1,0 +1,12 @@
+{
+    "name": "planner-calendar",
+    "private": true,
+    "scripts": {
+        "build:css": "tailwindcss -i ./src/tailwind-input.css -o ./css/tailwind.css --minify",
+        "build:bundle": "node js/bundle-calendar.mjs",
+        "build": "npm run build:css && npm run build:bundle"
+    },
+    "devDependencies": {
+        "tailwindcss": "^3.4.17"
+    }
+}
