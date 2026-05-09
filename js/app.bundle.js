@@ -1413,7 +1413,7 @@ function renderCalendar() {
 
     for (let i = 0; i < firstDay; i++) {
         const emptyCell = document.createElement('div');
-        emptyCell.className = 'day-cell bg-slate-50/70 dark:bg-slate-800/40 rounded-2xl';
+        emptyCell.className = 'day-cell bg-slate-50/70 dark:bg-slate-800/40 rounded-xl sm:rounded-2xl';
         grid.appendChild(emptyCell);
     }
 
@@ -1423,20 +1423,20 @@ function renderCalendar() {
         const isToday = today.getFullYear() === year && today.getMonth() === month && today.getDate() === day;
         const isSelected = state.selectedDate === dateStr;
         cell.className =
-            'day-cell bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-600 rounded-2xl p-2 flex flex-col cursor-pointer hover:border-indigo-300 dark:hover:border-indigo-500 ' +
+            'day-cell bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-600 rounded-xl sm:rounded-2xl p-1 sm:p-2 flex flex-col cursor-pointer hover:border-indigo-300 dark:hover:border-indigo-500 ' +
             (isToday ? 'today ring-2 ring-offset-2 ring-indigo-400 dark:ring-offset-slate-950 ' : '') +
             (isSelected ? 'selected ring-2 ring-offset-2 ring-indigo-500 dark:ring-offset-slate-950' : '');
 
         const dayNumber = document.createElement('div');
         dayNumber.className =
-            'font-semibold text-sm mb-1 flex items-center justify-between ' +
+            'font-semibold text-[11px] sm:text-sm mb-0.5 sm:mb-1 flex items-center justify-between gap-1 ' +
             (isToday ? 'text-indigo-700 dark:text-indigo-300' : 'text-slate-700 dark:text-slate-300');
         dayNumber.innerHTML =
             '<span>' +
             day +
             '</span>' +
             (isToday
-                ? '<span class="text-[9px] px-1.5 py-px bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-300 rounded font-mono">СЕГОДНЯ</span>'
+                ? '<span class="hidden sm:inline text-[9px] px-1.5 py-px bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-300 rounded font-mono">СЕГОДНЯ</span>'
                 : '');
         cell.appendChild(dayNumber);
 

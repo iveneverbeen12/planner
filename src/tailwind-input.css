@@ -20,12 +20,14 @@
     }
     .calendar-grid {
         display: grid;
-        grid-template-columns: repeat(7, 1fr);
+        grid-template-columns: repeat(7, minmax(0, 1fr));
         gap: 4px;
     }
     .day-cell {
         aspect-ratio: 1 / 1;
         min-height: 90px;
+        min-width: 0;
+        overflow: hidden;
         transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .day-cell:hover {
@@ -83,6 +85,34 @@
         border-radius: 3px;
         color: white;
         font-weight: 500;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-width: 0;
+    }
+    @media (max-width: 640px) {
+        .calendar-grid {
+            gap: 2px;
+        }
+        .day-cell {
+            min-height: 58px;
+            border-radius: 0.7rem;
+        }
+        .day-cell:hover {
+            transform: none;
+            box-shadow: none;
+        }
+        .day-cell.today {
+            box-shadow: 0 0 0 2px #6366f1;
+        }
+        .dark .day-cell.today {
+            box-shadow: 0 0 0 2px #818cf8;
+        }
+        .mini-event {
+            font-size: 8px;
+            padding: 0 2px;
+            margin: 1px 0;
+        }
     }
     .custom-scroll::-webkit-scrollbar {
         width: 6px;
